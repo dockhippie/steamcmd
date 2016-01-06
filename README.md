@@ -1,4 +1,4 @@
-# Steamcmd
+# SteamCMD
 
 [![](https://badge.imagelayers.io/webhippie/steamcmd:latest.svg)](https://imagelayers.io/?images=webhippie/steamcmd:latest 'Get your own badge on imagelayers.io')
 
