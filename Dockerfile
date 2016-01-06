@@ -7,8 +7,6 @@ CMD ["bash"]
 RUN groupadd -r steam && \
   useradd \
     -m -r -d /home/steam -g steam steam && \
-  dpkg --add-architecture \
-    i386 && \
   apt-get \
     update && \
   apt-get install -y \
