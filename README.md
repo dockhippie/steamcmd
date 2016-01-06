@@ -3,7 +3,7 @@
 [![](https://badge.imagelayers.io/webhippie/steamcmd:latest.svg)](https://imagelayers.io/?images=webhippie/steamcmd:latest 'Get your own badge on imagelayers.io')
 
 These are docker images for [SteamCMD](http://store.steampowered.com/) running
-on an [openSUSE container](https://registry.hub.docker.com/u/webhippie/opensuse/).
+on an [Ubuntu container](https://registry.hub.docker.com/u/webhippie/ubuntu/).
 
 
 ## Usage

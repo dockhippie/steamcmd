@@ -1,16 +1,26 @@
-FROM webhippie/opensuse:latest
+FROM webhippie/ubuntu:precise
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
-
-RUN groupadd -r steam && \
-  useradd -m -r -d /var/lib/steam -g steam steam && \
-  zypper -n install -l --no-recommends \
-    tar \
-    wget \
-    glibc-32bit \
-    libstdc++6-32bit && \
-  cd /var/lib/steam && \
-  wget -O - http://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -xzf - && \
-  chown -R steam:steam /var/lib/steam
 
 ADD rootfs /
 CMD ["bash"]
+
+RUN groupadd -r steam && \
+  useradd \
+    -m -r -d /home/steam -g steam steam && \
+  dpkg --add-architecture \
+    i386 && \
+  apt-get \
+    update && \
+  apt-get install -y \
+    lib32gcc1 && \
+  apt-get \
+    clean && \
+  curl \
+    http://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
+    | tar -C /home/steam -xzf - && \
+  chown -R steam:steam \
+    /home/steam && \
+  steamcmd \
+    +login anonymous +quit && \
+  rm -f \
+    /home/steam/Steam/logs/*
