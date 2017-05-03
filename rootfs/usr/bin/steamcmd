@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec /usr/bin/gosu steam /home/steam/steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 $@
+exec su-exec steam /home/steam/steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 $@

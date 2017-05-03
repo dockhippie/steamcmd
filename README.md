@@ -23,8 +23,8 @@ These are docker images for [SteamCMD](http://store.steampowered.com/) running o
 ## Available environment variables
 
 ```bash
-```
 
+```
 
 ## Inherited environment variables
 
