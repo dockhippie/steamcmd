@@ -7,7 +7,7 @@ These are docker images for [SteamCMD](http://store.steampowered.com/) running o
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/steamcmd/tree/master) available as ```webhippie/steamcmd:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/steamcmd/)
+To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/steamcmd/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/steamcmd/tags/), these lists are always up to date.
 
 
 ## Volumes
@@ -28,9 +28,7 @@ These are docker images for [SteamCMD](http://store.steampowered.com/) running o
 
 ## Inherited environment variables
 
-```bash
-ENV CRON_ENABLED false
-```
+* [webhippie/ubuntu](https://github.com/dockhippie/ubuntu#available-environment-variables)
 
 
 ## Contributing
