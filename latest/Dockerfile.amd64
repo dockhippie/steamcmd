@@ -1,0 +1,25 @@
+FROM webhippie/ubuntu:18.04-amd64
+
+LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
+  org.label-schema.name="SteamCMD" \
+  org.label-schema.version="latest" \
+  org.label-schema.vendor="Thomas Boerger" \
+  org.label-schema.schema-version="1.0"
+
+RUN apt-get update -y && \
+  apt-get install -y locales lib32gcc1 && \
+  locale-gen en_US.UTF-8 && \
+  mkdir -p /var/lib/steam /var/log/steam && \
+  groupadd -g 1000 steam && \
+  useradd -u 1000 -d /var/lib/steam -g steam -s /bin/bash -M steam && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+WORKDIR /var/lib/steam
+COPY ./overlay ./overlay-amd64 /
+
+RUN curl http://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -C /var/lib/steam -xzf - && \
+  chown -R steam:steam /var/lib/steam /var/log/steam && \
+  steamcmd +login anonymous +quit && \
+  rm -rf /var/lib/steam/Steam/logs && \
+  ln -sf /var/log/steam /var/lib/steam/Steam/logs

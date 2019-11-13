@@ -1,5 +1,6 @@
 # SteamCMD
 
+[![Build Status](https://cloud.drone.io/api/badges/dockhippie/steamcmd/status.svg)](https://cloud.drone.io/dockhippie/steamcmd)
 [![](https://images.microbadger.com/badges/image/webhippie/steamcmd.svg)](https://microbadger.com/images/webhippie/steamcmd "Get your own image badge on microbadger.com")
 
 These are docker images for [SteamCMD](http://store.steampowered.com/) running on an [Ubuntu container](https://registry.hub.docker.com/u/webhippie/ubuntu/).
@@ -7,7 +8,7 @@ These are docker images for [SteamCMD](http://store.steampowered.com/) running o
 
 ## Versions
 
-To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/steamcmd/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/steamcmd/tags/), these lists are always up to date.
+* [latest](./latest) available as `webhippie/steamcmd:latest`
 
 
 ## Volumes
@@ -25,6 +26,7 @@ To get an overview about the available versions please take a look at the [GitHu
 ```bash
 
 ```
+
 
 ## Inherited environment variables
 
@@ -49,5 +51,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```

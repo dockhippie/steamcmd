@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec su-exec steam /var/lib/steam/steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 "$@"
