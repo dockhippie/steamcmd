@@ -7,7 +7,9 @@ LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.schema-version="1.0"
 
 RUN apt-get update -y && \
+  apt-get upgrade -y && \
   apt-get install -y locales lib32gcc1 && \
+  dpkg --add-architecture i386 && \
   locale-gen en_US.UTF-8 && \
   mkdir -p /var/lib/steam /var/log/steam && \
   groupadd -g 1000 steam && \
