@@ -1,4 +1,4 @@
-FROM webhippie/ubuntu:20.04-amd64@sha256:185ae714fea2aa6d9f856fb9c099980b902dbf9f791b2cd1e6b77895a41d99fd
+FROM webhippie/ubuntu:20.04-amd64@sha256:276b47dd862ffa74acc5b454a2433f24b54176c0dcc8bb2d370f8476aba71432
 
 WORKDIR /var/lib/steam
 
