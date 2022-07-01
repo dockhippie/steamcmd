@@ -1,20 +1,23 @@
 # steamcmd
 
-[![Docker Build](https://github.com/dockhippie/steamcmd/workflows/docker/badge.svg)](https://github.com/dockhippie/steamcmd/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/steamcmd/workflows/readme/badge.svg)](https://github.com/dockhippie/steamcmd/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/steamcmd/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/steamcmd)](https://hub.docker.com/r/webhippie/steamcmd) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/steamcmd)
+[![Docker Build](https://github.com/dockhippie/steamcmd/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/steamcmd/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/steamcmd)
 
-These are docker images for [SteamCMD](http://store.steampowered.com/) running on our [Ubuntu image](https://github.com/dockhippie/ubuntu).
+These are docker images for [SteamCMD][upstream] running on our
+[Ubuntu image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/steamcmd/tags) or [Quay](https://quay.io/repository/webhippie/steamcmd?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/steamcmd).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
-* None
+*  None
 
 ## Ports
 
-* None
+*  None
 
 ## Available environment variables
 
@@ -43,3 +46,9 @@ MIT
 ```console
 Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: http://store.steampowered.com
+[parent]: https://github.com/dockhippie/ubuntu
+[dockerhub]: https://hub.docker.com/r/webhippie/steamcmd/tags
+[quayio]: https://quay.io/repository/webhippie/steamcmd?tab=tags
+[github]: https://github.com/dockhippie/steamcmd
