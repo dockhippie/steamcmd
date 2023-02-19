@@ -1,25 +1,24 @@
 ---
-name: docker
+name: latest
 
-on:
+"on":
   push:
     branches:
       - master
+    paths:
+      - latest/*
+      - .github/workflows/docker.yml
   pull_request:
     branches:
       - master
+    paths:
+      - latest/*
+      - .github/workflows/docker.yml
+  workflow_dispatch:
 
 jobs:
   docker:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        version:
-          - folder: latest
-            tag: latest
-            arm64: false
-            arm: false
 
     steps:
       - name: Checkout source
@@ -65,47 +64,17 @@ jobs:
 
       - name: Build amd64
         id: amd64
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ${{ matrix.version.folder }}/
-          file: ${{ matrix.version.folder }}/Dockerfile.amd64
+          context: latest/
+          file: latest/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/steamcmd:${{ matrix.version.tag }}-amd64
-            quay.io/webhippie/steamcmd:${{ matrix.version.tag }}-amd64
-
-      - name: Build arm64
-        id: arm64
-        uses: docker/build-push-action@v4
-        if: matrix.version.arm64
-        with:
-          builder: ${{ steps.buildx.outputs.name }}
-          context: ${{ matrix.version.folder }}/
-          file: ${{ matrix.version.folder }}/Dockerfile.arm64
-          platforms: linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            webhippie/steamcmd:${{ matrix.version.tag }}-arm64
-            quay.io/webhippie/steamcmd:${{ matrix.version.tag }}-arm64
-
-      - name: Build arm
-        id: arm
-        uses: docker/build-push-action@v4
-        if: matrix.version.arm
-        with:
-          builder: ${{ steps.buildx.outputs.name }}
-          context: ${{ matrix.version.folder }}/
-          file: ${{ matrix.version.folder }}/Dockerfile.arm
-          platforms: linux/arm/v7
-          push: ${{ github.event_name != 'pull_request' }}
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            webhippie/steamcmd:${{ matrix.version.tag }}-arm
-            quay.io/webhippie/steamcmd:${{ matrix.version.tag }}-arm
+            webhippie/steamcmd:latest-amd64
+            quay.io/webhippie/steamcmd:latest-amd64
 
       - name: Hub manifest
         id: manifest1
@@ -114,9 +83,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: webhippie/steamcmd:${{ matrix.version.tag }}-ARCH
-          target: webhippie/steamcmd:${{ matrix.version.tag }}
+          platforms: linux/amd64
+          template: webhippie/steamcmd:latest-ARCH
+          target: webhippie/steamcmd:latest
           ignore_missing: true
 
       - name: Quay manifest
@@ -126,9 +95,9 @@ jobs:
         with:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: quay.io/webhippie/steamcmd:${{ matrix.version.tag }}-ARCH
-          target: quay.io/webhippie/steamcmd:${{ matrix.version.tag }}
+          platforms: linux/amd64
+          template: quay.io/webhippie/steamcmd:latest-ARCH
+          target: quay.io/webhippie/steamcmd:latest
           ignore_missing: true
 
 ...
