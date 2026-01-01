@@ -15,6 +15,9 @@ RUN apt-get update -y && \
 
 COPY ./overlay /
 
+RUN sed -i 's/\r$//' /usr/bin/steamcmd && \
+  chmod +x /usr/bin/steamcmd
+
 RUN curl http://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -C /var/lib/steam -xzf - && \
   chown -R steam:steam /var/lib/steam /var/log/steam && \
   steamcmd +login anonymous +quit && \
