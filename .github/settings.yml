@@ -1,7 +1,7 @@
 ---
 repository:
   name: steamcmd
-  description: Docker images for steamcmd
+  description: Docker images for SteamCMD
   topics: docker, image
 
   private: false
