@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/ubuntu:22.04-amd64@sha256:c89fa05909e31f90805993bdaa4e0a9ad5dca75479c197257d9050d9e2257918
+FROM ghcr.io/dockhippie/ubuntu:22.04-amd64@sha256:c3b06579741e9661679eb28db36ed44d8a6366ee4ecf6a937f5df5dbe8ba017d
 
 WORKDIR /var/lib/steam
 
